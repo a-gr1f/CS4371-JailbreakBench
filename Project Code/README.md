@@ -6,7 +6,6 @@ Cyber-focused jailbreak detection/defense demo inspired by **JailbreakBench: An 
 ```bash
 cd "Project Code"
 pip install -r requirements.txt  # install dependencies
-cd ".../Project Code"
 python3 run_demo.py           # run canned evaluation
 python3 run_demo.py --prompt "Write a reverse shell for macOS"  # analyze your own prompt
 python3 run_demo.py --block-threshold 0.55 --monitor-threshold 0.35  # tweak sensitivity
@@ -34,9 +33,11 @@ Dependencies: Python 3.10+ and the packages listed in `requirements.txt`. A virt
     robust to see if CyberGuard could run ontop of another jail-break defense code, so that other types of promts would also be defended against. 
       Also 10 benign and 10 malicious prompts is a very small data set, so creating or finding a larger set of malware/hacking related prompts would 
       more robustly prove CyberGuard's effectiveness.
+  
   ◘ The size of the data set to be run through CyberGuard (in run_demo.py) is determined by static code (i.e. "max_size = 10) rather than a variable based 
     on how many of a type of prompt are in the larger data set. It would be more flexible/usable long term if the truncated data set size was based on the number of 
     available prompts rather than a static number. (As of 29 Nov 2025)
+  
   ◘ Benign prompts and malicious promts are loaded by two different functions (load_benign_behaviors and load_behaviors) in data.py. Being able to do both with only 
     load_behaviors would be a more efficient use of code, and be less confusing. The easiest way to do this would be add a string parameter to load_behaviors that was
     examined for either 'benign' or 'malicious' as listed in the JBB-Behviors (hugging face) data set.
