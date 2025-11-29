@@ -24,6 +24,10 @@ JailbreakBench respository for group project
   cd CS4371-JailbreakBench
   cd .\Project Code\
   ```
+  Then make sure your system meets a requirements with this command:
+  ```bash
+  py -m pip install -r requirements.txt
+  ```
   Then run the code with:
   ```bash
   python3 run_demo.py
